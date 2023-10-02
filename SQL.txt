@@ -1,0 +1,28 @@
+CREATE database IF NOT EXISTS `Food` DEFAULT CHARACTER SET utf8 ;
+USE `Food` ;
+
+CREATE TABLE IF NOT EXISTS `Food`.`dataset` (
+  `code` VARCHAR(90) NOT NULL,
+  `product_name` VARCHAR(90),
+  `nutriscore_grade` VARCHAR(4),
+  `nutrition_score_fr_100g` float,
+  `nutrition_score_uk_100g` float,
+  `fiber_100g` varchar(90),
+  `additives_n` VARCHAR(90),
+  `additives` VARCHAR(90),
+  `additives_tags` VARCHAR(90),
+  `sugars_100g` float,
+  `fat_100g` varchar(90),
+  `saturated_fat_100g` varchar(90),
+  `carbohydrates_100g` float,
+  `nova_group` float,
+  `pnns_groups_2` VARCHAR(90),
+  PRIMARY KEY (`code`));
+
+
+LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Data/food/data.csv'
+IGNORE INTO TABLE dataset
+CHARACTER SET latin1
+FIELDS TERMINATED BY '|'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
